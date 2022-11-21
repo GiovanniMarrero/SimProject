@@ -95,3 +95,53 @@ for each in range(len(dealers_hand)):
         dealers_hand_value = dealers_hand_value + 10
 
 print("\nThis is dealers_hand_value after dealing:", dealers_hand_value)
+
+hit_me = players_hand_value
+hit1 = random.sample(cards_in_deck, 1)
+hit1value = 0 
+
+for each in range(len(hit1)):
+    if hit1[each] == 2:
+        hit1value = hit1value + 2
+    if hit1[each] == 3:
+        hit1value = hit1value + 3
+    if hit1[each] == 4:
+        hit1value = hit1value + 4
+    if hit1[each] == 5:
+        hit1value = hit1value + 5
+    if hit1[each] == 6:
+        hit1value = hit1value + 6
+    if hit1[each] == 7:
+        hit1value = hit1value + 7
+    if hit1[each] == 8:
+        hit1value = hit1value + 8
+    if hit1[each] == 9:
+        hit1value = hit1value + 9
+    if hit1[each] == 10:
+        hit1value = hit1value + 10
+    if hit1[each] == 'Ace':
+        hit1value = hit1value + 11
+    if hit1[each] == 'J':
+        hit1value = hit1value + 10
+    if hit1[each] == 'Q':
+        hit1value = hit1value + 10
+    if hit1[each] == 'K':
+        hit1value = hit1value + 10
+
+win_counter = 0
+loss_counter = 0
+
+if players_hand_value == 21:
+    print("Blackjack!")
+    win_counter = win_counter + 1
+if players_hand_value < 21:
+    players_hand_value = players_hand_value + hit1value
+
+if players_hand_value > 21:
+    print("Busted!")
+    loss_counter = loss_counter + 1
+
+print("Total Wins:", win_counter)
+print("Total Losses:", loss_counter)
+
+print("The new players_hand_value:", players_hand_value)
